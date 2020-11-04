@@ -1,9 +1,10 @@
-import pyautogui, subprocess
+import pyautogui
 import PySimpleGUI as gui
 from time import sleep
 from random import randint
 
-gui.theme("DarkAmber")
+default_theme = "DarkAmber"
+gui.theme(default_theme)
 BlackAmber = gui.Text("BlackAmber")
 BlackAmber.AutoSizeText = True
 BlackAmber.Font = (200, 30)
@@ -73,26 +74,13 @@ class util:  # utilities such as autoclickers and spammers, new window and tab o
                     pyautogui.click(pointPosArr[j * 2], pointPosArr[j * 2 + 1])
         pyautogui.PAUSE = default_pause
 
-    @staticmethod
-    def newtab(url="about:blank", os="default"):
-        if os == "mac":
-            pyautogui.hotkey("command", "t")
-        else:
-            pyautogui.hotkey("ctrl", "t")
-        pyautogui.write(url)
-        pyautogui.hotkey("enter")
-
-    @staticmethod
-    def newwindow(app="TextEdit"):
-        subprocess.call(["/usr/bin/open", "-W", "-n", "-a", "/Applications/" + app + ".app"])
-
 
 class interface:
     def __init__(self):
         return
 
     @staticmethod
-    def complete_ui(gui_theme="DarkAmber"):
+    def complete_ui(gui_theme=default_theme):
         gui.theme(gui_theme)
         points = 0
         pointText = []
@@ -187,7 +175,7 @@ class interface:
                 continue
 
     @staticmethod
-    def practical_ui(gui_theme="DarkAmber"):
+    def practical_ui(gui_theme=default_theme):
         gui.theme(gui_theme)
         points = 0
         pointText = []
@@ -283,7 +271,7 @@ class interface:
                 continue
 
     @staticmethod
-    def hotkey_ui(gui_theme="DarkAmber"):
+    def hotkey_ui(gui_theme=default_theme):
         gui.theme(gui_theme)
         transparency = 0
         layout = [
@@ -363,8 +351,6 @@ class interface:
 'Material2', 'NeutralBlue', 'Purple', 'Reddit', 'Reds', 'SandyBeach', 'SystemDefault', 'SystemDefault1', 
 'SystemDefaultForReal', 'Tan', 'TanBlue', 'TealMono', 'Topanga']
 '''
-
-#This is a MACRO, not an EXPLOIT. As such, most games will not punish you for using this. Be careful when using though.
 
 # space to write the GUI command
 # interface.hotkey_ui(theme) - summons the hotkey ui
