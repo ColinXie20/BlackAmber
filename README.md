@@ -6,3 +6,4 @@ This project mainly uses two Python modules, PySimpleGUI and pyautogui. PySimple
 The macro has a user interface that lets you input data in fields, such as click speed, delay, and key signatures, which are then passed to functions which do all of the clicking or key pressing.
 
 This could not have been possible without the help of PySimpleGUI or pyautogui(but was made a bit harder by PySimpleGUI's somewhat obscure documentation).
+This is a MACRO, not an EXPLOIT.
