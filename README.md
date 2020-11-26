@@ -10,6 +10,7 @@ This project also includes an interface specifically designed for Blood Samurai 
 This could not have been possible without the help of PySimpleGUI or pyautogui(but was made a bit harder by PySimpleGUI's somewhat obscure documentation).
 
 Commands:
+
 interface.practical_ui()
 
 interface.complete_ui()
