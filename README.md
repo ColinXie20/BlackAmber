@@ -5,4 +5,14 @@ This project mainly uses two Python modules, PySimpleGUI and pyautogui. PySimple
 
 The macro has a user interface that lets you input data in fields, such as click speed, delay, and key signatures, which are then passed to functions which do all of the clicking or key pressing.
 
+This project also includes an interface specifically designed for Blood Samurai 2, a Roblox game.
+
 This could not have been possible without the help of PySimpleGUI or pyautogui(but was made a bit harder by PySimpleGUI's somewhat obscure documentation).
+
+Commands:
+interface.practical_ui()
+interface.complete_ui()
+interface.hotkey_ui()
+interface.bloodsamurai2_cast_ui()
+
+Use these at the bottom of the main.py file. The default is interface.practical_ui().
