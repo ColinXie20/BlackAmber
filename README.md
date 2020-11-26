@@ -10,7 +10,7 @@ This project also includes an interface specifically designed for Blood Samurai 
 This could not have been possible without the help of PySimpleGUI or pyautogui(but was made a bit harder by PySimpleGUI's somewhat obscure documentation).
 
 Commands:
-
+```python
 interface.practical_ui()
 
 interface.complete_ui()
@@ -19,5 +19,5 @@ interface.hotkey_ui()
 
 interface.bloodsamurai2_cast_ui()
 
-
+```
 Use these at the bottom of the main.py file. The default is interface.practical_ui().
