@@ -11,8 +11,12 @@ This could not have been possible without the help of PySimpleGUI or pyautogui(b
 
 Commands:
 interface.practical_ui()
+
 interface.complete_ui()
+
 interface.hotkey_ui()
+
 interface.bloodsamurai2_cast_ui()
+
 
 Use these at the bottom of the main.py file. The default is interface.practical_ui().
