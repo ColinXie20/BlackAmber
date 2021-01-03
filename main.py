@@ -13,23 +13,6 @@ BlackAmber.Font = (200, 30)
 default_pause = 0.05
 pyautogui.PAUSE = default_pause
 
-def AutomaticCastStacker(array):
-    pyautogui.PAUSE = 0
-    for cast in array:
-        pyautogui.press("enter")
-        pyautogui.press("/")
-        copy(cast)
-        pyautogui.keyDown("command")
-        sleep(0.012)
-        pyautogui.keyDown("v")
-        sleep(0.012)
-        pyautogui.keyUp("command")
-        sleep(0.012)
-        pyautogui.keyUp("v")
-    pyautogui.press("enter")
-    pyautogui.PAUSE = default_pause
-
-
 class util:  # utilities such as autoclickers and spammers, new window and tab
     # openers
     def __init__(self):
@@ -325,74 +308,6 @@ class interface:
                             sleep(0.02)
                             pyautogui.keyUp(key)
                     pyautogui.PAUSE = default_pause
-                elif event == "Toggle Transparency":
-                    if transparency < 3:
-                        transparency += 1
-                    else:
-                        transparency = 0
-                    window.SetAlpha(1 - (transparency * 0.25))
-            except ValueError:
-                print("ValueError encountered, continuing program;")
-                continue
-
-    @staticmethod
-    def bloodsamurai2_cast_ui(gui_theme=default_theme):
-        gui.theme(gui_theme)
-        transparency = 0
-        # Cast: 燃える刃! Cast: サンダー刃! Cast: インフェルノブレード!
-        # Cast: サンダー刃! Cast: インフェルノブレード! Cast: 闇刃!
-        layout = [
-            [BlackAmber],
-            [gui.Text("written by ||TheDysfunctionalDragon||#6910")],
-            [gui.Text("Cast Stacker")],
-            [gui.Text("Fill the fields with the casts you want\nto use and the number of times the cast\nwill be repeated.")],
-            [gui.Text("The limit is 6 casts in total.")],
-            [gui.Text("Don't move your cursor during the operation.")],
-            [gui.Text("1"), gui.InputText(default_text="Cast: 燃える刃!", size=(23, 0)), gui.InputText(default_text="1", size=(3, 0))],
-            [gui.Text("2"), gui.InputText(default_text="Cast: インフェルノブレード!", size=(23, 0)), gui.InputText(default_text="1", size=(3, 0))],
-            [gui.Text("3"), gui.InputText(default_text="Cast: サンダー刃!", size=(23, 0)), gui.InputText(default_text="1", size=(3, 0))],
-            [gui.Text("4"), gui.InputText(default_text="Cast: ライトニング刃!", size=(23, 0)), gui.InputText(default_text="1", size=(3, 0))],
-            [gui.Text("5"), gui.InputText(default_text="Cast: 氷の刃!", size=(23, 0)), gui.InputText(default_text="1", size=(3, 0))],
-            [gui.Text("6"), gui.InputText(default_text="Cast: 闇刃!", size=(23, 0)), gui.InputText(default_text="1", size=(3, 0))],
-            [gui.InputText(default_text='["Cast: 燃える刃!", "Cast: インフェルノブレード!", "Cast: サンダー刃!", '
-                                        '"Cast: ライトニング刃!", "Cast: 氷の刃!", "Cast: 闇刃!"]', size=(32, 0))],
-            [gui.Button("Activate Multi"), gui.Button("Activate Array")],
-            [gui.Text("Single Casts")],
-            [gui.Button("Cast Dark Blade"), gui.Button("Cast Inferno Blade")],
-            [gui.Button("Cast Thunder Blade"), gui.Button("Cast Fire Blade")],
-            [gui.Button("Cast Lightning Blade"), gui.Button("Cast Ice Blade")],
-            [gui.Button("Toggle Transparency")],
-            [gui.Button("Close")]
-        ]
-        window = gui.Window("BlackAmber Cast GUI", layout)
-        window.KeepOnTop = True
-        window.Resizable = True
-        while True:
-            try:
-                event, values = window.read()
-                if event == gui.WIN_CLOSED or event == "Close":
-                    break
-                elif event == "Activate Multi":
-                    sizearr = pyautogui.size()
-                    pyautogui.click(sizearr[0] / 2, sizearr[1] / 2)
-                    cast_array = []
-                    for i in range(6):
-                        if values[i*2] != "":
-                            for j in range(int(values[(i+1)*2 - 1])):
-                                cast_array.append(values[i*2])
-                    AutomaticCastStacker(cast_array)
-                elif event == "Activate Array":
-                    sizearr = pyautogui.size()
-                    pyautogui.click(sizearr[0] / 2, sizearr[1] / 2)
-                    cast_array = eval(values[6])
-                    AutomaticCastStacker(cast_array)
-                elif event[:4] == "Cast":
-                    cast_dict = {"Fire Blade":"Cast: 燃える刃!", "Lightning Blade":"Cast: ライトニング刃!",
-                                 "Dark Blade":"Cast: 闇刃!", "Thunder Blade":"Cast: サンダー刃!",
-                                 "Inferno Blade":"Cast: インフェルノブレード!", "Ice Blade":"Cast: 氷の刃!"}
-                    sizearr = pyautogui.size()
-                    pyautogui.click(sizearr[0] / 2, sizearr[1] / 2)
-                    AutomaticCastStacker([cast_dict[event[5:]]])
                 elif event == "Toggle Transparency":
                     if transparency < 3:
                         transparency += 1
